@@ -123,8 +123,6 @@ background-color: white;
 .listproduct-format{
   align-items: center;
   font-weight: 500;
-}
-.listproduct-format-main-image{
   height: 80px;
   margin: auto;
 }
