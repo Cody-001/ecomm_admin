@@ -119,12 +119,12 @@ background-color: white;
   font-size: 15px;
   align-items: center
 }
-/* .listproduct-format{
+.listproduct-format{
   align-items: center;
   font-weight: 500;
   height: 80px;
   margin: auto;
-} */
+}
 .listproduct-format-main-image{
   width: 150px;
   height: auto;
