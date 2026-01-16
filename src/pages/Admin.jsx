@@ -1,8 +1,8 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
 import { Routes, Route } from "react-router-dom"
-import Addproduct from '../components/Addproduct'
 import ListProduct from '../components/ListProduct'
+import AddProduct from '../components/Addproduct'
 
 const Admin = () => {
   return (
@@ -10,8 +10,9 @@ const Admin = () => {
       <Sidebar />
 
       <Routes>
-        <Route path="addproduct" element={<Addproduct />} />
+        <Route path="addproduct" element={<AddProduct />} />
         <Route path="listproduct" element={<ListProduct />} />
+         <Route path="" element={<AddProduct />} /> 
       </Routes>
 
     </div>

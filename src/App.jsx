@@ -12,8 +12,7 @@ const App = () => {
           <Route path="/" element={<Navigate to="/addproduct" />} />
 
         <Route path="/*" element={<Admin />} />
-        <Route path='/addproduct' element={<AddProduct/>}/>
-        <Route path='/listproduct' element={<ListProduct/>}></Route>
+    
       </Routes>
 
     </>
