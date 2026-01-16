@@ -104,7 +104,6 @@ body{
   display: flex;
 flex-direction: column;
 align-items: center;
-
 width: 100%;
 height: 740px;
 margin: 30px;
@@ -120,9 +119,13 @@ background-color: white;
   font-size: 15px;
   align-items: center
 }
-.listproduct-format{
+/* .listproduct-format{
   align-items: center;
   font-weight: 500;
   height: 80px;
   margin: auto;
+} */
+.listproduct-format-main-image{
+  width: 150px;
+  height: auto;
 }
