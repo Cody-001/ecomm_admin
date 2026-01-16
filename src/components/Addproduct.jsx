@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import uploadimg from "../assets/upload_area.svg";
 
 const AddProduct = () => {
