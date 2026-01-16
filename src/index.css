@@ -1,0 +1,130 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  margin: 0 5%;
+}
+.admin{
+  display: flex;
+}
+.adminNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: white;
+  height: 100vh;
+  width: 100%;
+  max-width: 250px;
+  padding: 30px;
+  margin: 20px 0;
+  
+}
+.sidebar-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: #d6cfcf;
+  gap: 20px;
+
+}
+.addproduct{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px 50px;
+  margin: 20px 0;
+  border-radius: 6px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.addproduct-itemfield{
+  width: 100%;
+  color: #7b7b7b;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+.addproduct-itemfield input{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  padding-left: 15px;
+  border: 1px solid #c3c3c3;
+  outline: none;
+  font-size: 14px;
+}
+.addproduct-price{
+  display: flex;
+  gap: 40px;
+
+}
+.category-subcategory{
+  display: flex;
+  gap: 40px;
+}
+.category-subcategory select{
+   box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  padding-left: 15px;
+  border: 1px solid #c3c3c3;
+  outline: none;
+  font-size: 14px;
+}
+.addproduct button{
+  margin-top: 20px;
+  width: 160px;
+  height: 50px;
+  border-radius: 6px;
+  background: #6078;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+}
+.addprodut-thumnail{
+  width: 150px;
+  height: auto;
+}
+.listproduct{
+  display: flex;
+flex-direction: column;
+align-items: center;
+
+width: 100%;
+height: 740px;
+margin: 30px;
+background-color: white;
+}
+.lisproduct-format-main{
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 20px 0px;
+  color: #454545;
+  font-weight: 600;
+  font-size: 15px;
+  align-items: center
+}
+.lisproduct-format{
+  align-items: center;
+  font-weight: 500;
+}
+.lisproduct-forma-main-image{
+  height: 80px;
+  margin: auto;
+}
