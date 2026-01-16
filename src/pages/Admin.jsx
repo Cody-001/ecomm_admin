@@ -11,7 +11,7 @@ const Admin = () => {
       <Routes>
         <Route path="addproduct" element={<ProductAdd />} />
         <Route path="listproduct" element={<ListProduct />} />
-        <Route path="" element={<ProductAdd />} />  {/* Default route inside Admin */}
+        <Route path="" element={<ProductAdd />} />
       </Routes>
     </div>
   );
