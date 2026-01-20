@@ -23,65 +23,35 @@ const ProductAdd = () => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
-  const addProduct = async () => {
-    if (!image) {
-      alert("Please select an image");
-      return;
-    }
-    setLoading(true);
-    try {
-      // Upload image first
-      let formData = new FormData();
-      formData.append("product", image);
+const addProduct = async () => {
+  if (!image) {
+    alert("Please select an image");
+    return;
+  }
 
-      const uploadResponse = await fetch(`${API_URL}/upload`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
-        body: formData,
-      });
-      const uploadData = await uploadResponse.json();
+  const formData = new FormData();
+  formData.append("name", product.name);
+  formData.append("category", product.category);
+  formData.append("subcategory", product.subcategory);
+  formData.append("new_price", product.new_price);
+  formData.append("old_price", product.old_price);
+  formData.append("image", image); // ✅ MUST BE "image"
 
-      if (!uploadData.success) {
-        alert("Image upload failed");
-        setLoading(false);
-        return;
-      }
+  const response = await fetch(`${API_URL}/addproduct`, {
+    method: "POST",
+    body: formData, 
+  });
 
-      const productItem = { ...product, image: uploadData.image_url };
-      
-      const addProductResponse = await fetch(`${API_URL}/addproduct`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(productItem),
-      });
-      const addProductData = await addProductResponse.json();
+  const data = await response.json();
+  console.log(data);
 
-      if (addProductData.success) {
-        alert("Product Added");
-        setProduct({
-          name: "",
-          image: "",
-          category: "men",
-          subcategory: "pants",
-          new_price: "",
-          old_price: "",
-        });
-        setImage(false);
-      } else {
-        alert("Unauthorized or failed to add product");
-      }
-    } catch (error) {
-      alert("Network error. Please try again later.");
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (data.success) {
+    alert("Product added successfully");
+  } else {
+    alert(data.error);
+  }
+};
+
 
   return (
     <div className="addproduct">
@@ -148,10 +118,10 @@ const ProductAdd = () => {
             disabled={loading}
           >
             <option value="pant">Pants</option>
-            <option value="shirt">Shirts</option>
+            <option value="shirts">Shirts</option>
             <option value="hoodies">Hoodies</option>
           </select>
-        </div>
+        </div> 
       </div>
       <div className="addproduct-itemfield">
         <label htmlFor="file-input">
