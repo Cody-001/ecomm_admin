@@ -29,26 +29,44 @@ const addProduct = async () => {
     return;
   }
 
-  const formData = new FormData();
-  formData.append("name", product.name);
-  formData.append("category", product.category);
-  formData.append("subcategory", product.subcategory);
-  formData.append("new_price", product.new_price);
-  formData.append("old_price", product.old_price);
-  formData.append("image", image); // ✅ MUST BE "image"
+  try {
+    setLoading(true); // ✅ START loading
 
-  const response = await fetch(`${API_URL}/addproduct`, {
-    method: "POST",
-    body: formData, 
-  });
+    const formData = new FormData();
+    formData.append("name", product.name);
+    formData.append("category", product.category);
+    formData.append("subcategory", product.subcategory);
+    formData.append("new_price", product.new_price);
+    formData.append("old_price", product.old_price);
+    formData.append("image", image);
 
-  const data = await response.json();
-  console.log(data);
+    const response = await fetch(`${API_URL}/addproduct`, {
+      method: "POST",
+      body: formData,
+    });
 
-  if (data.success) {
-    alert("Product added successfully");
-  } else {
-    alert(data.error);
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.error || "Failed to add product");
+    }
+
+    alert("Product added successfully ✅");
+
+    // ✅ RESET FORM
+    setProduct({
+      name: "",
+      image: "",
+      category: "men",
+      subcategory: "pants",
+      new_price: "",
+      old_price: "",
+    });
+    setImage(false);
+  } catch (error) {
+    alert(error.message);
+  } finally {
+    setLoading(false); // ✅ STOP loading
   }
 };
 
@@ -126,6 +144,7 @@ const addProduct = async () => {
       <div className="addproduct-itemfield">
         <label htmlFor="file-input">
           <img
+          loading="lazy"
             src={image ? URL.createObjectURL(image) : uploadimg}
             className="addproduct-thumbnail"
             alt="Upload Preview"
