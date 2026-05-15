@@ -135,7 +135,7 @@ const addProduct = async () => {
             className="add-product-selector"
             disabled={loading}
           >
-            <option value="pant">Pants</option>
+            <option value="pants">Pants</option>
             <option value="shirts">Shirts</option>
             <option value="hoodies">Hoodies</option>
           </select>
